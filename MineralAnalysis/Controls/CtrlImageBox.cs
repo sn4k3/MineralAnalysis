@@ -142,7 +142,7 @@ namespace MineralAnalysis.Controls
                         tsActionsCombobox2.ToolTipText = "Use a more accurate norm to calculate the image gradient magnitude";
                     tsActionsCombobox2.Items.Add("No");
                     tsActionsCombobox2.Items.Add("Yes");
-                    tsActionsCombobox2.SelectedIndex = 0;
+                    tsActionsCombobox2.SelectedIndex = 1;
 
                     tsActionLabel3.Dispose();
                     tsActionsTextbox3.Dispose();
@@ -169,12 +169,12 @@ namespace MineralAnalysis.Controls
                     tsActionsCombobox2.Dispose();
 
 
-                    for (int i = 1; i <= 31; i += 2)
+                    for (byte i = 1; i <= 31; i += 2)
                     {
                         tsActionsCombobox1.Items.Add(i.ToString());
                     }
 
-                    tsActionsCombobox1.SelectedIndex = 2;
+                    tsActionsCombobox1.SelectedIndex = (tsActionsCombobox1.Items.Count - 1) / 2;
                     break;
                 case FilterAlgorithm.Laplace:
                     tsActionLabel1.Dispose();
@@ -193,12 +193,12 @@ namespace MineralAnalysis.Controls
                     tsActionLabel4.ToolTipText =
                         tsActionsCombobox1.ToolTipText = "Size of the extended Sobel kernel, must be 1, 3, 5 or 7. In all cases except 1, aperture_size xaperture_size separable kernel will be used to calculate the derivative.";
                     
-                    for (int i = 1; i <= 31; i += 2)
+                    for (byte i = 1; i <= 31; i += 2)
                     {
                         tsActionsCombobox1.Items.Add(i.ToString());
                     }
 
-                    tsActionsCombobox1.SelectedIndex = 2;
+                    tsActionsCombobox1.SelectedIndex = (tsActionsCombobox1.Items.Count - 1) / 2;
 
                     break;
                 case FilterAlgorithm.Sobel_Heavy:
