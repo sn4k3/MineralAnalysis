@@ -190,25 +190,28 @@ namespace MineralAnalysis.Controls
             IsLoaded = true;
         }
 
-        private void PopulateImageProperties(IImage img)
+        private void PopulateImageProperties(IImage image)
         {
-
             FileInfo fi = new FileInfo(FilePath);
             CreateListViewDataItem("FileName", lvData.Groups[0], FileName);
             CreateListViewDataItem("File Size", lvData.Groups[0], Utilities.BytesToString(fi.Length));
-            CreateListViewDataItem("Image Size", lvData.Groups[0], $"{img.Size.Width} x {img.Size.Height}");
-            CreateListViewDataItem("Width", lvData.Groups[0], img.Size.Width.ToString());
-            CreateListViewDataItem("Height", lvData.Groups[0], img.Size.Height.ToString());
-            CreateListViewDataItem("Horizontal Resolution", lvData.Groups[0], $"{img.Bitmap.HorizontalResolution} ppp");
-            CreateListViewDataItem("Vertical Resolution", lvData.Groups[0], $"{img.Bitmap.VerticalResolution} ppp");
-            CreateListViewDataItem("Pixel Format", lvData.Groups[0], img.Bitmap.PixelFormat.ToString());
-            double mpx = Math.Round(img.Size.Width * img.Size.Height / 1000000.0, 2);
+            CreateListViewDataItem("Image Size", lvData.Groups[0], $"{image.Bitmap.Width} x {image.Bitmap.Height}");
+            CreateListViewDataItem("Width", lvData.Groups[0], image.Bitmap.Width.ToString());
+            CreateListViewDataItem("Height", lvData.Groups[0], image.Bitmap.Height.ToString());
+            CreateListViewDataItem("Horizontal Resolution", lvData.Groups[0],
+                $"{image.Bitmap.HorizontalResolution} ppp");
+            CreateListViewDataItem("Vertical Resolution", lvData.Groups[0], $"{image.Bitmap.VerticalResolution} ppp");
+            CreateListViewDataItem("Pixel Format", lvData.Groups[0], image.Bitmap.PixelFormat.ToString());
+            double mpx = Math.Round(image.Bitmap.Width * image.Bitmap.Height / 1000000.0, 2);
             CreateListViewDataItem("Megapixels", lvData.Groups[0], $"{mpx} MP");
-            double aspectratio = Math.Round(((double)img.Size.Width / (double)img.Size.Height), 2);
-            CreateListViewDataItem("Aspect Ratio", lvData.Groups[0], aspectratio.ToString(CultureInfo.InvariantCulture));
+            double aspectratio = Math.Round(((double)image.Bitmap.Width / (double)image.Bitmap.Height), 2);
+            CreateListViewDataItem("Aspect Ratio", lvData.Groups[0],
+                aspectratio.ToString(CultureInfo.InvariantCulture));
 
-            CreateListViewDataItem("Creation Date", lvData.Groups[0], fi.CreationTime.ToString(CultureInfo.CurrentUICulture));
-            CreateListViewDataItem("Last Modify Date", lvData.Groups[0], fi.LastWriteTime.ToString(CultureInfo.CurrentUICulture));
+            CreateListViewDataItem("Creation Date", lvData.Groups[0],
+                fi.CreationTime.ToString(CultureInfo.CurrentUICulture));
+            CreateListViewDataItem("Last Modify Date", lvData.Groups[0],
+                fi.LastWriteTime.ToString(CultureInfo.CurrentUICulture));
 
             CreateListViewDataItem("Contours", lvData.Groups[0], "0");
         }

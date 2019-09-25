@@ -38,11 +38,13 @@
             this.tsActionsTextbox2 = new System.Windows.Forms.ToolStripTextBox();
             this.tsActionLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.tsActionsTextbox3 = new System.Windows.Forms.ToolStripTextBox();
-            this.tsActionsLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.tsActionLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.tsActionsCombobox1 = new System.Windows.Forms.ToolStripComboBox();
             this.tsActionsBtnFilterApply = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsActionsLabelMS = new System.Windows.Forms.ToolStripButton();
+            this.tsActionsCombobox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.tsActionLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.tsActions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,8 +61,10 @@
             this.tsActionsTextbox2,
             this.tsActionLabel3,
             this.tsActionsTextbox3,
-            this.tsActionsLabel4,
+            this.tsActionLabel4,
             this.tsActionsCombobox1,
+            this.tsActionLabel5,
+            this.tsActionsCombobox2,
             this.tsActionsBtnFilterApply,
             this.toolStripSeparator2,
             this.tsActionsLabelMS});
@@ -76,7 +80,7 @@
             this.tsBarBtnSave.Image = global::MineralAnalysis.Properties.Resources.save16x16;
             this.tsBarBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBarBtnSave.Name = "tsBarBtnSave";
-            this.tsBarBtnSave.Size = new System.Drawing.Size(60, 22);
+            this.tsBarBtnSave.Size = new System.Drawing.Size(61, 22);
             this.tsBarBtnSave.Text = "&Export";
             this.tsBarBtnSave.ToolTipText = "Export and save current image in the local disk";
             this.tsBarBtnSave.Click += new System.EventHandler(this.EventClick);
@@ -102,6 +106,7 @@
             // tsActionsTextbox1
             // 
             this.tsActionsTextbox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tsActionsTextbox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tsActionsTextbox1.MaxLength = 4;
             this.tsActionsTextbox1.Name = "tsActionsTextbox1";
             this.tsActionsTextbox1.Size = new System.Drawing.Size(50, 25);
@@ -117,6 +122,7 @@
             // tsActionsTextbox2
             // 
             this.tsActionsTextbox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tsActionsTextbox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tsActionsTextbox2.MaxLength = 4;
             this.tsActionsTextbox2.Name = "tsActionsTextbox2";
             this.tsActionsTextbox2.Size = new System.Drawing.Size(50, 25);
@@ -132,17 +138,18 @@
             // tsActionsTextbox3
             // 
             this.tsActionsTextbox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tsActionsTextbox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tsActionsTextbox3.MaxLength = 4;
             this.tsActionsTextbox3.Name = "tsActionsTextbox3";
             this.tsActionsTextbox3.Size = new System.Drawing.Size(50, 25);
             this.tsActionsTextbox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EventKeyPress);
             this.tsActionsTextbox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EventKeyUp);
             // 
-            // tsActionsLabel4
+            // tsActionLabel4
             // 
-            this.tsActionsLabel4.Name = "tsActionsLabel4";
-            this.tsActionsLabel4.Size = new System.Drawing.Size(44, 22);
-            this.tsActionsLabel4.Text = "Label 4";
+            this.tsActionLabel4.Name = "tsActionLabel4";
+            this.tsActionLabel4.Size = new System.Drawing.Size(44, 22);
+            this.tsActionLabel4.Text = "Label 4";
             // 
             // tsActionsCombobox1
             // 
@@ -177,6 +184,20 @@
             this.tsActionsLabelMS.Text = "ms";
             this.tsActionsLabelMS.ToolTipText = "Processing time";
             // 
+            // tsActionsCombobox2
+            // 
+            this.tsActionsCombobox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsActionsCombobox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tsActionsCombobox2.MaxLength = 4;
+            this.tsActionsCombobox2.Name = "tsActionsCombobox2";
+            this.tsActionsCombobox2.Size = new System.Drawing.Size(75, 25);
+            // 
+            // tsActionLabel5
+            // 
+            this.tsActionLabel5.Name = "tsActionLabel5";
+            this.tsActionLabel5.Size = new System.Drawing.Size(44, 22);
+            this.tsActionLabel5.Text = "Label 5";
+            // 
             // CtrlImageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,8 +225,10 @@
         private System.Windows.Forms.ToolStripTextBox tsActionsTextbox3;
         private System.Windows.Forms.ToolStripButton tsActionsBtnFilterApply;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripLabel tsActionsLabel4;
+        private System.Windows.Forms.ToolStripLabel tsActionLabel4;
         private System.Windows.Forms.ToolStripComboBox tsActionsCombobox1;
         private System.Windows.Forms.ToolStripButton tsActionsLabelMS;
+        private System.Windows.Forms.ToolStripLabel tsActionLabel5;
+        private System.Windows.Forms.ToolStripComboBox tsActionsCombobox2;
     }
 }

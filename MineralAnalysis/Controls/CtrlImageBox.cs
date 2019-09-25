@@ -125,17 +125,27 @@ namespace MineralAnalysis.Controls
                         tsActionsTextbox2.ToolTipText = "The threshold used for edge Linking";
                     tsActionsTextbox2.Text = "100";
 
-                    tsActionLabel3.Text = "Aperture Size";
+                    /*tsActionLabel3.Text = "Aperture Size";
                     tsActionLabel3.ToolTipText =
                         tsActionsTextbox3.ToolTipText = "The aperture size for the Sobel operator";
-                    tsActionsTextbox3.Text = "3";
-
-                    tsActionsLabel4.Text = "L2gradient";
-                    tsActionsLabel4.ToolTipText =
-                        tsActionsCombobox1.ToolTipText = "Use a more accurate norm to calculate the image gradient magnitude";
-                    tsActionsCombobox1.Items.Add("No");
-                    tsActionsCombobox1.Items.Add("Yes");
+                    tsActionsTextbox3.Text = "3";*/
+                    tsActionLabel4.Text = "Aperture Size";
+                    tsActionLabel4.ToolTipText =
+                        tsActionsCombobox1.ToolTipText = "The aperture size for the Sobel operator";
+                    tsActionsCombobox1.Items.Add("3");
+                    tsActionsCombobox1.Items.Add("5");
+                    tsActionsCombobox1.Items.Add("7");
                     tsActionsCombobox1.SelectedIndex = 0;
+
+                    tsActionLabel5.Text = "L2gradient";
+                    tsActionLabel5.ToolTipText =
+                        tsActionsCombobox2.ToolTipText = "Use a more accurate norm to calculate the image gradient magnitude";
+                    tsActionsCombobox2.Items.Add("No");
+                    tsActionsCombobox2.Items.Add("Yes");
+                    tsActionsCombobox2.SelectedIndex = 0;
+
+                    tsActionLabel3.Dispose();
+                    tsActionsTextbox3.Dispose();
                     break;
                 case FilterAlgorithm.Sobel:
                     tsActionLabel1.Text = "X Order";
@@ -151,9 +161,12 @@ namespace MineralAnalysis.Controls
                     tsActionLabel3.Dispose();
                     tsActionsTextbox3.Dispose();
 
-                    tsActionsLabel4.Text = "Aperture Size";
-                    tsActionsLabel4.ToolTipText =
+                    tsActionLabel4.Text = "Aperture Size";
+                    tsActionLabel4.ToolTipText =
                         tsActionsCombobox1.ToolTipText = "Size of the extended Sobel kernel, must be 1, 3, 5 or 7. In all cases except 1, aperture_size xaperture_size separable kernel will be used to calculate the derivative.";
+
+                    tsActionLabel5.Dispose();
+                    tsActionsCombobox2.Dispose();
 
 
                     for (int i = 1; i <= 31; i += 2)
@@ -167,14 +180,17 @@ namespace MineralAnalysis.Controls
                     tsActionLabel1.Dispose();
                     tsActionLabel2.Dispose();
                     tsActionLabel3.Dispose();
+                    tsActionLabel4.Dispose();
+                    tsActionLabel5.Dispose();
 
 
                     tsActionsTextbox1.Dispose();
                     tsActionsTextbox2.Dispose();
-                    tsActionsTextbox3.Dispose();
+                    tsActionsTextbox3.Dispose(); 
+                    tsActionsCombobox2.Dispose();
 
-                    tsActionsLabel4.Text = "Aperture Size";
-                    tsActionsLabel4.ToolTipText =
+                    tsActionLabel4.Text = "Aperture Size";
+                    tsActionLabel4.ToolTipText =
                         tsActionsCombobox1.ToolTipText = "Size of the extended Sobel kernel, must be 1, 3, 5 or 7. In all cases except 1, aperture_size xaperture_size separable kernel will be used to calculate the derivative.";
                     
                     for (int i = 1; i <= 31; i += 2)
@@ -204,11 +220,13 @@ namespace MineralAnalysis.Controls
             tsActionLabel1.Dispose();
             tsActionLabel2.Dispose();
             tsActionLabel3.Dispose();
-            tsActionsLabel4.Dispose();
+            tsActionLabel4.Dispose();
+            tsActionLabel5.Dispose();
             tsActionsTextbox1.Dispose();
             tsActionsTextbox2.Dispose();
             tsActionsTextbox3.Dispose();
             tsActionsCombobox1.Dispose();
+            tsActionsCombobox2.Dispose();
             tsActionsBtnFilterApply.Dispose();
         }
 
@@ -230,7 +248,7 @@ namespace MineralAnalysis.Controls
                         ImageSource = ParentTab.ImgGray;
                         break;
                     case FilterAlgorithm.Canny:
-                        var image = ParentTab.ImgGray.Canny(Convert.ToDouble(tsActionsTextbox1.Text), Convert.ToDouble(tsActionsTextbox2.Text), Convert.ToInt32(tsActionsTextbox3.Text), tsActionsCombobox1.SelectedItem.ToString().Equals("Yes"));
+                        var image = ParentTab.ImgGray.Canny(Convert.ToDouble(tsActionsTextbox1.Text), Convert.ToDouble(tsActionsTextbox2.Text), Convert.ToInt32(tsActionsCombobox1.SelectedItem.ToString()), tsActionsCombobox2.SelectedItem.ToString().Equals("Yes"));
                         /*LineSegment2D[][] lines = image.HoughLinesBinary(
                             10, //Distance resolution in pixel-related units
                             Math.PI / 45.0, //Angle resolution measured in radians.
@@ -267,7 +285,8 @@ namespace MineralAnalysis.Controls
                         break;
                 }
 
-                ImageBox.Image = ImageSource.Bitmap;
+
+                ImageBox.Image = ImageSource?.Bitmap; 
                 watch.Stop();
                 tsActionsLabelMS.Text = $"{watch.ElapsedMilliseconds}ms";
             }
